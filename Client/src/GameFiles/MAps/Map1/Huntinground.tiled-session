@@ -3,17 +3,30 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "huntingground.tmj",
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "huntingground.tmj": {
+            "scale": 0.33,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 695.4545454545453,
+                "y": 553.030303030303
+            }
+        },
+        "huntingground.tmj#test1": {
+            "scaleInDock": 0.75
+        }
     },
     "map.height": 100,
     "map.lastUsedFormat": "json",
     "map.width": 180,
     "openFiles": [
+        "huntingground.tmj"
     ],
     "project": "Huntinground.tiled-project",
     "recentFiles": [
+        "huntingground.tmj"
     ]
 }

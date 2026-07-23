@@ -18,4 +18,24 @@ export const OtherCharAnims=(anims)=>{
             frameRate: 8,
             repeat: -1
         });
+
+         anims.create({
+            key: "widle",
+            frames: anims.generateFrameNumbers("wizard", {frames: [0]}),
+            frameRate: 3 ,
+            repeat: -1
+        });
+        anims.create({
+            key: "wleft",
+            frames: anims.generateFrameNumbers("wizard", {frames: [6]}),
+            frameRate: 3 ,
+            repeat: -1
+        });
+        anims.create({
+            key: "wup",
+            frames: anims.generateFrameNumbers("wizard", {frames: [3]}),
+            frameRate: 3 ,
+            repeat: -1
+        });
+        
 }

@@ -8,6 +8,10 @@ import Phaser from "phaser";
 import { CreatePlayer } from "../Character/CharcterCreate";
 import { MovingAction } from "../Anims/MovingAnimsofChar/MovingAction";
 import { OtherCharAnims } from "../Anims/OtherCharAnims";
+import player2 from "../resources/MainChar/player.png";
+import plancer from "../resources/MainChar/plancer.png";
+import { Movinfg2char } from "../Anims/seconCharAnim/MOvingsecondChar";
+import { MovingSoldier } from "../Anims/Soldier/MovingSoldier";
 
 export default class Preload extends Phaser.Scene {
     constructor() {
@@ -19,9 +23,9 @@ export default class Preload extends Phaser.Scene {
     preload() {
         console.log("preload");
         this.load.image("background", backgroundImage);
-        this.load.spritesheet("player", playerSprite, {
-            frameWidth: 56,
-            frameHeight: 92
+        this.load.spritesheet("player", player2, {
+            frameWidth: 32,
+            frameHeight: 32
         });
           this.load.spritesheet("queen", queen, {
             frameWidth: 56,
@@ -35,6 +39,15 @@ export default class Preload extends Phaser.Scene {
             frameWidth: 56,
             frameHeight: 92
         });
+        this.load.spritesheet("2char",player2,{
+            frameWidth: 32,
+            frameHeight: 32
+        })
+
+         this.load.spritesheet("plancer",plancer,{
+            frameWidth: 17,
+            frameHeight: 192
+        })
         
         // Map loading
         this.load.tilemapTiledJSON('map', './Maps/Map1/Huntinground.json');
@@ -43,20 +56,20 @@ export default class Preload extends Phaser.Scene {
 
     create() {
         console.log("create called");
-        this.add.image(400, 300, "background").setScale(1.5);
-        //Menu
-        this.add.text(400, 300, "FireAndFreez", { fontSize: "32px", fill: "#fff" }).setOrigin(0.5);
-        let playButton=this .add.text(400,350,"startGAme",{ fontSize: "32px", fill: "#fff" }).setOrigin(0.5).setInteractive({ useHandCursor: true });
+        // this.add.image(400, 300, "background").setScale(1.5);
+        // //Menu
+        // this.add.text(400, 300, "FireAndFreez", { fontSize: "32px", fill: "#fff" }).setOrigin(0.5);
+        // let playButton=this .add.text(400,350,"startGAme",{ fontSize: "32px", fill: "#fff" }).setOrigin(0.5).setInteractive({ useHandCursor: true });
 
-        playButton.on('pointerover', () => {
-            playButton.setStyle({ fill: '#ff0' }); // Change color to yellow on hover
-        });
-        playButton.on('pointerdown', () => {
-            this.scene.start('GameScene1'); // Switches to your gameplay scene
-        });
-         playButton.on('pointerout', () => {
-            playButton.setStyle({ fill: '#0f0' }); // Change back to green
-        });
+        // playButton.on('pointerover', () => {
+        //     playButton.setStyle({ fill: '#ff0' }); // Change color to yellow on hover
+        // });
+        // playButton.on('pointerdown', () => {
+        //     this.scene.start('GameScene1'); // Switches to your gameplay scene
+        // });
+        //  playButton.on('pointerout', () => {
+        //     playButton.setStyle({ fill: '#0f0' }); // Change back to green
+        // });
 
 
         // MAinCharAnims(this.anims);
@@ -66,13 +79,17 @@ export default class Preload extends Phaser.Scene {
    
          this.queen=CreatePlayer(300,500,this,"queen")
          this.wizard=CreatePlayer(200,500,this,"wizard")
-         this.drawf=CreatePlayer(500,500,this,"drawf")
-    //   this.player= CreatePlayer(100,500,this,"player")
-    //   this.player.anims.play("pdownwalk")
+        //  this.drawf=CreatePlayer(500,500,this,"drawf")
+        //  this.player2=CreatePlayer(100,500,this,"plancer").setScale(2.5)
+        // this.plancer= CreatePlayer(500,500,this,"plancer").setScale(0.5)
+        console.log("plancer",this.plancer)
+        MovingSoldier(this.anims,"player")
+    //   this.plancer.anims.play("plancer_idle")
       this.queen.anims.play("qdownwalk")
-        this.drawf.anims.play("dfdownwalk")
+        // this.drawf.anims.play("dfdownwalk")
         this.wizard.anims.play("wwalk")
-      
+        this.scene.start('GameScene1')
+
         
     }
 

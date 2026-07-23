@@ -1,5 +1,6 @@
  export const CreatePlayer=(x,y,scene,name)=>{
-           scene.player= scene.physics.add.sprite(x,y,name)
-           scene.player.setCollideWorldBounds(true); 
-           return scene.player
-        }
+   console.log("CreatePlayer called",name)
+   const sprite = scene.physics.add.sprite(x,y,name)
+   sprite.setCollideWorldBounds(true);
+   return sprite
+}

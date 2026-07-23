@@ -7,9 +7,11 @@ import { GameScene1 } from './Scenes/GameScene1';
         height: 600,
         scene: [PreLoad,GameScene1],
         
+        
         physics: {
             default: 'arcade',
             arcade: {
+                 debug: true ,
                
             }
         }
